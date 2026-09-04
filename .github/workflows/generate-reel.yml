@@ -1,0 +1,92 @@
+name: Generate Story Reel
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      genre:
+        description: "Genre override (blank = random)"
+        required: false
+        default: ""
+        type: string
+      category:
+        description: "Category override (blank = random)"
+        required: false
+        default: ""
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reeler-generate
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    env:
+      BYNARA_API_KEY: ${{ secrets.BYNARA_API_KEY }}
+      GENRE: ${{ inputs.genre }}
+      CATEGORY: ${{ inputs.category }}
+      TOKENIZERS_PARALLELISM: "false"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: |
+            requirements.txt
+            requirements-torch.txt
+
+      - name: Install system packages
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq espeak-ng ffmpeg
+
+      - name: Cache Hugging Face models
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: huggingface-models-v1
+          restore-keys: huggingface-models-
+
+      - name: Install CPU-only PyTorch
+        run: pip install --index-url https://download.pytorch.org/whl/cpu -r requirements-torch.txt
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate story script
+        run: python scripts/generate_story.py
+
+      - name: Generate scene images
+        run: python scripts/generate_images.py
+
+      - name: Generate narration audio
+        run: python scripts/generate_audio.py
+
+      - name: Assemble reel video
+        run: python scripts/assemble_video.py
+
+      - name: Commit reel to repository
+        run: python scripts/commit_output.py
+
+      - name: Write job summary
+        if: always()
+        run: python scripts/summary.py || true
+
+      - name: Upload run artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: reel-run-${{ github.run_id }}
+          path: build/
+          if-no-files-found: ignore
+          retention-days: 7
