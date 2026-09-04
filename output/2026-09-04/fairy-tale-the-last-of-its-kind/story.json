@@ -1,0 +1,36 @@
+{
+  "title": "The Last Dragon of the Crystal Lake",
+  "logline": "A lonely boy befriends the last forgotten dragon sleeping beneath a crystal lake, helping her rediscover a fire she thought was lost forever.",
+  "genre": "Fairy Tale",
+  "category": "The Last of Its Kind",
+  "scenes": [
+    {
+      "text": "She was the last dragon in the world, and she had forgotten how to breathe fire. For a hundred years she slept beneath the crystal lake in the forgotten valley, where the kingdom above believed dragons were only myth. Moss grew over her scales and minnows darted between her whiskers while seasons turned above. The villagers fished the lake and told their children dragons never existed, never knowing the great, lonely heart beating softly beneath their boats.",
+      "image_prompt": "Giant dragon sleeping under crystal lake, submerged valley, mystical tranquil mood, teal and moss green palette, soft diffused underwater light",
+      "word_count": 77
+    },
+    {
+      "text": "One cold autumn evening, a small boy named Milo slipped away from the harvest festival to skip stones on the lake. His third stone did not sink but struck something hard and warm that hummed beneath the water. The entire lake shivered and glowed amber from below as the dragon slowly opened one ancient golden eye. Milo did not run, for he saw not a monster but a sadness deeper than the water itself, a loneliness that mirrored his own quiet heart.",
+      "image_prompt": "Small boy skipping stone on glowing lake at dusk, dragon eye beneath water, wonder mood, amber violet palette, twilight glow",
+      "word_count": 82
+    },
+    {
+      "text": "Every night after that, Milo returned with stories and songs, sitting at the lake's edge while the dragon listened. He told her of his mother's lullabies, of kites tangled in trees, of how it felt to be the smallest in a loud family. The dragon lowered her head to hear better, and for the first time in a century warmth stirred in her hollow chest. A faint wisp of smoke curled from her nostrils, but no flame would come no matter how hard she tried.",
+      "image_prompt": "Boy sitting at lakeside talking to dragon head above water, night, cozy melancholic mood, deep blue silver palette, moonlight reflection",
+      "word_count": 85
+    },
+    {
+      "text": "Winter came early, and the valley froze so hard the crystal lake turned to solid ice. Milo fell dangerously ill with fever and could not climb the hill to visit. Beneath the ice, the dragon felt his absence like a second winter and pressed her cold scales against the frozen roof, listening for his footsteps that never came. The village lights flickered dimly through the ice above, and she understood at last what fire was for, not for burning, but for keeping something precious warm.",
+      "image_prompt": "Dragon trapped under thick frozen lake ice, village lights above, lonely cold mood, icy white blue palette, dim frosted light",
+      "word_count": 85
+    },
+    {
+      "text": "With all her ancient strength, the dragon breathed, not out of anger but out of love, and the ice across the lake melted in an instant. Steam rose like a cloud of stars, and the villagers awoke to see a gentle dragon carrying a sleeping boy safely in her claws, wrapping him in warmth until his fever broke. She never needed to hide again, for the valley learned that the last dragon had not come to destroy their world, but to finally make it whole.",
+      "image_prompt": "Gentle dragon holding sleeping boy on thawed steaming lake, villagers watching, hopeful warm mood, gold pink dawn palette, radiant sunrise light",
+      "word_count": 85
+    }
+  ],
+  "created_at": "2026-09-04T19:17:30.632348+00:00",
+  "model": "muse-spark-1.2-contributor-free",
+  "total_words": 414
+}
