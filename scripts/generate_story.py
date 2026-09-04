@@ -31,7 +31,9 @@ CATEGORIES = [
 SYSTEM = (
     "You are a professional short-form video scriptwriter. You write original, "
     "gripping micro-stories that will be narrated aloud by a calm AI voice over "
-    "still artwork. You always respond with valid JSON only."
+    "still artwork. You always respond with valid JSON only. "
+    "Do not think step by step. Do not reason or plan silently. "
+    "Begin your response with '{' and answer immediately with the JSON object."
 )
 
 TEMPLATE = """Write a narration script for a 3-minute vertical video reel.
@@ -103,7 +105,7 @@ def call_llm(client, genre, category):
     response = client.chat.completions.create(
         model=MODEL,
         temperature=0.85,
-        max_tokens=1800,
+        max_tokens=4000,
         messages=[
             {"role": "system", "content": SYSTEM},
             {"role": "user", "content": TEMPLATE.format(genre=genre, category=category)},
@@ -119,7 +121,7 @@ def main():
     genre = GENRE_ENV or random.choice(GENRES)
     category = CATEGORY_ENV or random.choice(CATEGORIES)
     print(f"Selected combo: {genre} / {category}", flush=True)
-    client = OpenAI(base_url=BASE_URL, api_key=API_KEY, timeout=120)
+    client = OpenAI(base_url=BASE_URL, api_key=API_KEY, timeout=180)
     story = None
     last_error = None
     for attempt in range(1, 4):
