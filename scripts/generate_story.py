@@ -42,14 +42,29 @@ Genre: {genre}
 Category: {category}
 
 Respond with ONLY one valid JSON object:
-{{"title": string, "logline": string, "characters": [{{"name": string, "visual": string}}], "world": string, "palette": string, "beats": [string]}}
+{{"title": string, "logline": string, "characters": [{{"name": string, "visual": string}}], "world": string, "palette": string}}
 
 - title: punchy, under 8 words
 - logline: one sentence under 30 words
 - characters: 1-2 named characters, each "visual" a concrete 8-14 word physical description of visible features only
 - world: concrete 8-14 word description of the recurring main setting
-- palette: 3-6 literal color names
-- beats: exactly 10 strings, one per scene, each 10-15 words. Beats 1-3: cold-open hook, introduce hero, inciting incident. Beats 4-7: escalation, midpoint reversal at 5, all-is-lost at 7. Beats 8-10: climax, resolution, payoff line calling back to the opening hook."""
+- palette: 3-6 literal color names"""
+
+BEATS_PROMPT = """Write the 10 scene beats for this mini movie.
+
+Title: {title}
+Logline: {logline}
+Genre: {genre} / {category}
+World: {world}
+Characters: {characters}
+
+Respond with ONLY one valid JSON object:
+{{"beats": [string]}}
+
+"beats": exactly 10 strings, one per scene, each 10-15 words.
+- Beats 1-3: cold-open hook, introduce hero, inciting incident.
+- Beats 4-7: escalation, midpoint reversal at 5, all-is-lost at 7.
+- Beats 8-10: climax, resolution, payoff line calling back to the opening hook."""
 
 SCENE_PROMPT = """Write scene {i} of 10 of this mini movie.
 
@@ -96,15 +111,18 @@ def call(client, prompt, max_tokens):
     return response.choices[0].message.content or ""
 
 
-def call_with_retry(client, prompt, max_tokens, tries=4):
+def call_with_retry(client, prompt, budgets=(2500, 4000, 6000, 10000)):
+    """Retry with escalating token budgets: the router model sometimes burns
+    its whole budget on hidden reasoning; a larger budget lets the response
+    finish and emit content."""
     last = None
-    for attempt in range(1, tries + 1):
+    for attempt, budget in enumerate(budgets, 1):
         try:
-            return extract_json(call(client, prompt, max_tokens))
+            return extract_json(call(client, prompt, budget))
         except Exception as exc:
             last = exc
-            print(f"  attempt {attempt} failed: {exc}", flush=True)
-            if attempt < tries:
+            print(f"  attempt {attempt} (budget {budget}) failed: {exc}", flush=True)
+            if attempt < len(budgets):
                 time.sleep(4 * attempt)
     raise last
 
@@ -130,23 +148,30 @@ def validate_setup(data):
                 )
     if not characters:
         raise ValueError("need at least 1 character")
-    beats = data.get("beats")
-    if not isinstance(beats, list) or len(beats) != 10:
-        raise ValueError("need exactly 10 beats")
-    beats = [clean(b)[:200] for b in beats]
-    if any(len(b) < 20 for b in beats):
-        raise ValueError("a beat is too short")
+    if not clean(data.get("world")):
+        raise ValueError("missing world")
     return {
         "title": clean(data.get("title"))[:120] or "Untitled Reel",
         "logline": clean(data.get("logline"))[:300],
         "characters": characters,
         "world": clean(data.get("world"))[:160],
         "palette": clean(data.get("palette"))[:80],
-        "beats": beats,
     }
 
 
-def validate_scene(data, setup, beat):
+def validate_beats(data):
+    if not isinstance(data, dict):
+        raise ValueError("beats response is not a JSON object")
+    beats = data.get("beats")
+    if not isinstance(beats, list) or len(beats) != 10:
+        raise ValueError("need exactly 10 beats")
+    beats = [clean(b)[:200] for b in beats]
+    if any(len(b) < 20 for b in beats):
+        raise ValueError("a beat is too short")
+    return beats
+
+
+def validate_scene(data, setup):
     if not isinstance(data, dict):
         raise ValueError("scene response is not a JSON object")
     summary = clean(data.get("summary"))
@@ -182,30 +207,43 @@ def main():
     genre = GENRE_ENV or random.choice(GENRES)
     category = CATEGORY_ENV or random.choice(CATEGORIES)
     print(f"Selected combo: {genre} / {category}", flush=True)
-    client = OpenAI(base_url=BASE_URL, api_key=API_KEY, timeout=180)
+    client = OpenAI(base_url=BASE_URL, api_key=API_KEY, timeout=300)
 
-    print("Phase 1: title, world, characters, 10 beats...", flush=True)
+    print("Phase 1: title, world, characters...", flush=True)
     setup = validate_setup(
         call_with_retry(
-            client, SETUP_PROMPT.format(genre=genre, category=category), 2500
+            client, SETUP_PROMPT.format(genre=genre, category=category)
         )
     )
     print(f"  setup OK: '{setup['title']}'", flush=True)
     print(f"  world: {setup['world']}", flush=True)
-    print(f"  palette: {setup['palette']}", flush=True)
 
     characters_str = "; ".join(
         f"{c['name']} ({c['visual']})" for c in setup["characters"]
     )
+    print("Phase 1b: 10 beats...", flush=True)
+    beats = validate_beats(
+        call_with_retry(
+            client,
+            BEATS_PROMPT.format(
+                title=setup["title"],
+                logline=setup["logline"],
+                genre=genre,
+                category=category,
+                world=setup["world"],
+                characters=characters_str,
+            ),
+        )
+    )
+    print(f"  beats OK: {len(beats)}", flush=True)
+
     scenes = []
-    for i, beat in enumerate(setup["beats"], 1):
+    for i, beat in enumerate(beats, 1):
         print(f"Phase 2: scene {i}...", flush=True)
         if i == 1:
             previous_context = "This is the opening scene."
         else:
-            previous_context = (
-                f"Previous scene ended: {scenes[-1]['summary']}"
-            )
+            previous_context = f"Previous scene ended: {scenes[-1]['summary']}"
         prompt = SCENE_PROMPT.format(
             i=i,
             title=setup["title"],
@@ -217,14 +255,9 @@ def main():
             previous_context=previous_context,
             ending_rule=ending_rule(i),
         )
-        scene = validate_scene(
-            call_with_retry(client, prompt, 3000), setup, beat
-        )
+        scene = validate_scene(call_with_retry(client, prompt), setup)
         scenes.append(scene)
-        print(
-            f"  scene {i} OK: {scene['word_count']} words",
-            flush=True,
-        )
+        print(f"  scene {i} OK: {scene['word_count']} words", flush=True)
 
     total_words = sum(s["word_count"] for s in scenes)
     story = {
