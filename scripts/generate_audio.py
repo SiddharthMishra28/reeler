@@ -9,8 +9,9 @@ from kokoro import KPipeline
 BUILD = Path("build")
 SR = 24000
 VOICE = os.environ.get("TTS_VOICE", "af_heart")
-TARGET_SECONDS = 180
-MAX_SPEED = 1.2
+TARGET_SECONDS = 300
+MIN_SPEED = 0.85
+MAX_SPEED = 1.15
 
 
 def synth(pipeline, text, speed):
@@ -29,9 +30,6 @@ def synth(pipeline, text, speed):
         arr = np.asarray(audio, dtype=np.float32)
         if arr.ndim > 1:
             arr = arr.mean(axis=0)
-        if not chunks:
-            extra_lead = np.zeros(int(0.15 * SR), dtype=np.float32)
-            chunks.append(extra_lead)
         chunks.append(arr)
     if not chunks:
         return np.zeros(int(0.4 * SR), dtype=np.float32)
@@ -46,12 +44,13 @@ def main():
     speed = 1.0
     audios = [synth(pipeline, s["text"], speed) for s in scenes]
     total = sum(len(a) for a in audios) / SR
-    print(f"Pass 1 narration length: {total:.1f}s", flush=True)
-    if total > TARGET_SECONDS:
-        target_speed = round(total / (TARGET_SECONDS - 10), 2)
-        if 1.0 < target_speed <= MAX_SPEED:
+    print(f"Pass 1 narration length: {total:.1f}s (target {TARGET_SECONDS}s)", flush=True)
+    if abs(total - TARGET_SECONDS) / TARGET_SECONDS > 0.04:
+        target_speed = round(total / TARGET_SECONDS, 2)
+        target_speed = min(max(target_speed, MIN_SPEED), MAX_SPEED)
+        if abs(target_speed - 1.0) >= 0.02:
             speed = target_speed
-            print(f"Renarrating at speed {speed} to fit 3 minutes", flush=True)
+            print(f"Renarrating at speed {speed} to fit {TARGET_SECONDS}s", flush=True)
             audios = [synth(pipeline, s["text"], speed) for s in scenes]
             total = sum(len(a) for a in audios) / SR
             print(f"Pass 2 narration length: {total:.1f}s", flush=True)

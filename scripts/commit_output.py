@@ -34,7 +34,8 @@ def main():
     title = str(story.get("title", "Untitled")).replace("|", "/")
     if not index.exists():
         index.write_text(
-            "| Date | Title | Genre / Category | Video |\n|---|---|---|---|\n", encoding="utf-8"
+            "| Date | Title | Genre / Category | Video |\n|---|---|---|---|\n",
+            encoding="utf-8",
         )
     with index.open("a", encoding="utf-8") as f:
         f.write(
