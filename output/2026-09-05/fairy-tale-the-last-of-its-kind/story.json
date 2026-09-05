@@ -1,0 +1,83 @@
+{
+  "title": "The Last Ember Dragon",
+  "logline": "A lonely girl must hatch the world's last dragon egg before the endless winter freezes it forever.",
+  "genre": "Fairy Tale",
+  "category": "The Last of Its Kind",
+  "characters": [
+    {
+      "name": "Elara",
+      "visual": "Young girl with braided auburn hair, freckled cheeks, patched green cloak"
+    },
+    {
+      "name": "Ember",
+      "visual": "Tiny silver-scaled dragon hatchling with large amber eyes, translucent wings"
+    }
+  ],
+  "world": "Snow-covered mountain castle library with towering frosted bookshelves and glowing hearth",
+  "palette": "ivory, slate blue, amber, emerald, charcoal",
+  "scenes": [
+    {
+      "summary": "Endless winter grips the frozen castle library as Elara discovers a faint shiver stirring within the dying hearth's ash.",
+      "text": "Stop scrolling, this story was frozen for a hundred years waiting for you. The mountain castle sleeps under endless winter. Ice claws the stone walls. Snow smothers the towers. Inside, the library breathes cold. Frost coats towering bookshelves. The hearth glows weak and low. Wind howls through cracked windows. And in the ash, something shivers. Something alive. Elara kneels there. Her breath fogs the air. Her patched cloak drags in frost. She leans closer.",
+      "image_prompt": "Young girl with braided auburn hair, freckled cheeks, patched green cloak in Snow-covered mountain castle library with towering frosted bookshelves and glowing hearth, kneeling by hearth ash where ice cracks",
+      "word_count": 74
+    },
+    {
+      "summary": "Elara kneels to feed the weak hearth, her breath fogging, as a faint glow answers from the ash.",
+      "text": "The castle is empty. Snow presses against the high windows. The hearth barely breathes. Elara kneels alone on the cold stone. Her patched cloak drags in the ash. She scrapes together the last black crumbs of coal. She blows. The smoke stings her freckled cheeks. Her hands shake from the cold. The embers refuse to catch. Then something beneath the ash shivers. A pulse of heat. A faint amber light flickers. Is someone breathing down there?",
+      "image_prompt": "Young girl with braided auburn hair, freckled cheeks, patched green cloak kneeling at Snow-covered mountain castle library with towering frosted bookshelves and glowing hearth stoking ash with iron poker",
+      "word_count": 76
+    },
+    {
+      "summary": "Elara finds the pulsing dragon egg hidden behind frosted shelves, its warmth melting snow at her feet.",
+      "text": "The glow pulses again. Behind the frosted bookshelves. Elara crawls through dust and dead ivy. Her knees scrape cold stone. Her fingers brush something smooth. Not stone. Not ice. An egg. Silver-veined. No bigger than a loaf of bread. It throbs against her palm. Warm. Alive. Frost melts where it rests. A faint heartbeat thumps beneath the shell. Something shifts inside. Cracks spider across the surface. Will it hatch for her now?",
+      "image_prompt": "Young girl with braided auburn hair, freckled cheeks, patched green cloak in Snow-covered mountain castle library with towering frosted bookshelves and glowing hearth, kneeling holding glowing silver egg behind bookshelf",
+      "word_count": 72
+    },
+    {
+      "summary": "Elara cradles the pulsing silver egg, whispering warmth into it as its glow flickers uncertainly.",
+      "text": "She lifts the silver egg to her chest. It pulses against her patched cloak. Warmth bleeds through wool and frost. She tucks herself beside the hearth. Stone cold at her back. Fire crackling ahead. She whispers of summer meadows. Of sun on stone. Of skies the dragons once ruled. The egg shivers. Its amber light flares. Then dims. The cold presses closer. Can her stories keep the last ember from dying tonight?",
+      "image_prompt": "Young girl with braided auburn hair, freckled cheeks, patched green cloak cradling silver egg in Snow-covered mountain castle library with towering frosted bookshelves and glowing hearth",
+      "word_count": 72
+    },
+    {
+      "summary": "The silver egg cracks open, but the hatchling is fading fast, leaving Elara desperate to save it.",
+      "text": "A sharp crack splits the silver shell. Frost spills across the hearth rug. Elara holds her breath. The tiny dragon pushes through, silver scales damp, translucent wings folded. Its amber eyes open, then dim. A cold shiver runs through its body. The glow from the egg fades to ash. Elara presses her hands close, sharing heat. But the hatchling barely moves. Can her warmth be enough to keep the last ember alive?",
+      "image_prompt": "Young girl with braided auburn hair, freckled cheeks, patched green cloak in Snow-covered mountain castle library with towering frosted bookshelves and glowing hearth, cracked silver egg with hatchling lying on stone floor",
+      "word_count": 72
+    },
+    {
+      "summary": "Blizzard shatters windows, extinguishing the hearth as Elara shields the fading hatchling from freezing snow.",
+      "text": "The wind screams through the mountain stone. Glass explodes inward. Snow rips across the library shelves. Frost bites the ancient books. The hearth coughs. Its coals sputter and dim. Cold swallows the last orange glow. Elara throws her cloak over the tiny dragon. Its silver scales turn pale. Its amber eyes flutter. Its breath comes thin and shallow. Darkness and ice close in. Can her warmth be enough to keep the last ember alive?",
+      "image_prompt": "Young girl with braided auburn hair, freckled cheeks, patched green cloak in Snow-covered mountain castle library with towering frosted bookshelves and glowing hearth, snow bursting through shattered windows extinguishing coals",
+      "word_count": 74
+    },
+    {
+      "summary": "Elara cradles the frost-covered hatchling as its wings freeze still, ending with her tears falling onto its scales.",
+      "text": "The wind howls through broken glass. Snow piles on the stone floor. Elara kneels by the dead hearth. Her hands shake. The hatchling lies still in her palms. Frost crawls across silver scales. Ice crystals lock translucent wings. Amber eyes dull beneath a thin white veil. Her tears fall. They steam, then freeze. She presses the cold body to her chest. Will her warmth be enough, or is the last ember already gone?",
+      "image_prompt": "Young girl with braided auburn hair, freckled cheeks, patched green cloak in Snow-covered mountain castle library with towering frosted bookshelves and glowing hearth holding frozen dragon hatchling covered in frost",
+      "word_count": 73
+    },
+    {
+      "summary": "Elara presses Ember to her heart, sacrificing her cloak to the hearth to reignite his dying fire.",
+      "text": "The frost spreads across his silver scales. His wings do not move. His amber eyes dim. Elara pulls him to her chest. Her heartbeat hammers against his cold body. She hears nothing back. No fire. No breath. She tears off her patched cloak. She throws it into the glowing hearth. Flames roar up the frosted shelves. Heat floods the stone floor. She presses Ember into the light. Will his heart catch the flame or go dark forever?",
+      "image_prompt": "Young girl with braided auburn hair, freckled cheeks, patched green cloak pressing tiny silver-scaled dragon hatchling to chest in Snow-covered mountain castle library with towering frosted bookshelves and glowing hearth cloak burning in hearth",
+      "word_count": 77
+    },
+    {
+      "summary": "Ember erupts in blazing silver flame, melting the castle's snow, leaving Elara awestruck before an uncertain dawn.",
+      "text": "Heat rips from her chest. Ember shudders. Silver scales catch. A spark becomes a sun. Flame erupts along his spine. Translucent wings ignite. He screams light. The library explodes with heat. Frosted bookshelves weep. Ice cracks from the stone towers. Snow slides from the roofs in steaming sheets. Meltwater floods the courtyard. Elara stumbles back, shielding her eyes. The tiny dragon hovers, now a star. But can one small fire warm a world locked in endless winter?",
+      "image_prompt": "Young girl with braided auburn hair, freckled cheeks, patched green cloak in Snow-covered mountain castle library with towering frosted bookshelves and glowing hearth, dragon bursting into flame melting snow from towers",
+      "word_count": 77
+    },
+    {
+      "summary": "Winter ends as Ember's flame melts the snow, and Elara watches dawn break over the thawed castle.",
+      "text": "Silver light floods the library. Snow slides from the shelves. Water drips onto stone. The hearth roars, no longer small. Elara stands in the melt, cloak dripping, breath no longer clouding. Ember circles above, wings wide, scattering warm ash. Outside the frosted windows, the valley thaws. Green pushes through white. The hundred-year winter is over. Sunlight cuts through the mountain pass for the first time in a century. Because all that time, one girl kept the last ember warm.",
+      "image_prompt": "Young girl with braided auburn hair, freckled cheeks, patched green cloak, Tiny silver-scaled dragon hatchling with large amber eyes, translucent wings, Snow-covered mountain castle library with towering frosted bookshelves and glowing hearth, snow melting",
+      "word_count": 79
+    }
+  ],
+  "total_words": 746,
+  "created_at": "2026-09-05T11:28:31.224987+00:00",
+  "model": "muse-spark-1.2-contributor-free"
+}
