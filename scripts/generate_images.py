@@ -47,12 +47,11 @@ def main():
     clip_model.eval()
 
     def clip_score(image, prompt):
-        inputs = clip_processor(text=[prompt], images=[image], return_tensors="pt", padding=True)
+        inputs = clipProcessor(text=[prompt], images=[image], return_tensors="pt", padding=True)
         with torch.no_grad():
-            img_feat = clip_model.get_image_features(pixel_values=inputs["pixel_values"])
-            txt_feat = clip_model.get_text_features(
-                input_ids=inputs["input_ids"], attention_mask=inputs["attention_mask"]
-            )
+            outputs = clip_model(**inputs)
+            img_feat = outputs.image_embeds
+            txt_feat = outputs.text_embeds
             img_feat = img_feat / img_feat.norm(dim=-1, keepdim=True)
             txt_feat = txt_feat / txt_feat.norm(dim=-1, keepdim=True)
             sim = (img_feat @ txt_feat.T).item()
