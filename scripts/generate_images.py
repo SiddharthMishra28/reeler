@@ -47,7 +47,7 @@ def main():
     clip_model.eval()
 
     def clip_score(image, prompt):
-        inputs = clipProcessor(text=[prompt], images=[image], return_tensors="pt", padding=True)
+        inputs = clip_processor(text=[prompt], images=[image], return_tensors="pt", padding=True)
         with torch.no_grad():
             outputs = clip_model(**inputs)
             img_feat = outputs.image_embeds
