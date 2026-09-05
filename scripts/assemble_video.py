@@ -32,7 +32,7 @@ def sh(cmd):
 
 
 def esc(text):
-    """Escape text for ffmpeg drawtext."""
+    """Escape text for ffmpeg drawtext (used only for non-textfile options)."""
     return (
         str(text)
         .replace("\\", "\\\\")
@@ -86,6 +86,8 @@ def motion_filter(style, frames):
 def render_scene(image, frames, style, out_path, title_text=None, font=None):
     filt = motion_filter(style, frames)
     if title_text and font:
+        title_file = BUILD / "title.txt"
+        title_file.write_text(str(title_text), encoding="utf-8")
         fade_in_end = TITLE_SECONDS * 0.25
         alpha = (
             f"alpha='if(lt(t,{fade_in_end:.2f}),t/{fade_in_end:.2f},"
@@ -93,7 +95,7 @@ def render_scene(image, frames, style, out_path, title_text=None, font=None):
             f"if(lt(t,{TITLE_SECONDS + 0.4:.2f}),({TITLE_SECONDS + 0.4:.2f}-t)/0.4,0)))'"
         )
         filt += (
-            f",drawtext=fontfile={font}:text='{esc(title_text)}':"
+            f",drawtext=fontfile={font}:textfile={title_file}:"
             f"fontcolor=white:fontsize=68:borderw=3:bordercolor=black@0.65:"
             f"x=(w-text_w)/2:y=h*0.40:{alpha}"
         )
