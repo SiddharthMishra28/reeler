@@ -1,0 +1,83 @@
+{
+  "title": "Groundhog Latte Day",
+  "logline": "A clumsy barista relives her disastrous Monday shift until she perfects the perfect latte.",
+  "genre": "Comedy",
+  "category": "Time Loop",
+  "characters": [
+    {
+      "name": "Maya",
+      "visual": "Young woman with messy bun, round glasses, oversized yellow sweater"
+    },
+    {
+      "name": "Carl",
+      "visual": "Tired barista with bushy beard, bald head, floral apron"
+    }
+  ],
+  "world": "Small cozy coffee shop with chalkboard menu and stuck wall clock",
+  "palette": "cream, mustard yellow, teal, burnt orange",
+  "scenes": [
+    {
+      "summary": "Maya enters for Monday coffee, the clock chimes seven, and she spills her latte everywhere.",
+      "text": "Stop scrolling, you have felt a Monday so bad it loops forever. It is 7 AM. The bell jingles. Cold air bites. Maya shuffles in, glasses fogged, sweater sleeves over her hands. The espresso machine hisses. Carl slides a steaming latte across the chipped counter. The stuck wall clock chimes seven. Again. Her elbow jerks. Hot foam flies. Brown liquid splatters the floor. She stares at the spreading puddle. The clock ticks but never moves.",
+      "image_prompt": "Young woman with messy bun, round glasses, oversized yellow sweater spilling latte in Small cozy coffee shop with chalkboard menu and stuck wall clock",
+      "word_count": 75
+    },
+    {
+      "summary": "Maya dreads another repeating Monday, cleans her spill, and realizes the clock never moves past seven.",
+      "text": "The floor is sticky with warm milk. The clock still says seven. Maya wipes the counter with shaking hands. Her yellow sweater drips brown. The smell of burnt espresso hangs heavy. Carl pours the same latte again. The bell chimes seven again. Monday refuses to move. The steam curls the same way. Her glasses fog the same way. She blinks. The spill is back on the floor. Untouched. Perfect. How many Mondays has she already lived?",
+      "image_prompt": "Young woman with messy bun, round glasses, oversized yellow sweater slipping on spilled latte inside Small cozy coffee shop with chalkboard menu and stuck wall clock",
+      "word_count": 76
+    },
+    {
+      "summary": "Carl shouts Maya's latte order, she slips on spilled milk, latte explodes, and the day instantly resets.",
+      "text": "The bell jingles. Steam hisses from the espresso machine. Carl's voice booms across the counter, sharp and tired. Maya lunges for the latte. Her sock catches the wet tile. Her arms windmill. The cup flies. Hot foam bursts across the chalkboard, the floor, her yellow sweater. The smell of burnt milk hangs heavy. Cold coffee soaks through her socks. The clock still reads seven. Then everything snaps to black. Silence. Is she back at the doorway again?",
+      "image_prompt": "Young woman with messy bun, round glasses, oversized yellow sweater in Small cozy coffee shop with chalkboard menu and stuck wall clock, slipping latte exploding mid-air",
+      "word_count": 77
+    },
+    {
+      "summary": "Maya tries to fix yesterday's spill but scorches the milk, foam explodes, and time resets again.",
+      "text": "She remembers the slip. The splash. The reset. This time she moves slower. Too slow. She grips the metal pitcher. Holds the steam wand down. Way too long. The milk screams. Hisses. Swells. It rises like a volcano. White foam erupts. It coats the counter. The ceiling. Her glasses. Carl just stares. The clock still says 7:59. And then it happens again. But will she ever get the latte right? Or is she stuck forever?",
+      "image_prompt": "Young woman with messy bun, round glasses, oversized yellow sweater in Small cozy coffee shop with chalkboard menu and stuck wall clock, milk foam erupting from pitcher",
+      "word_count": 75
+    },
+    {
+      "summary": "Maya spots the stuck clock controlling the loop and boldly decides to master time itself.",
+      "text": "The milk still sizzles on the steam wand. Foam drips from the ceiling. Maya wipes her glasses. She stares at the wall. The clock hasn't moved in three loops. Second hand twitches. Backward. One tick. The espresso machine hisses at exactly the same second. She sees it now. The clock isn't stuck. It is the switch. She reaches up. Her fingertips brush cold glass and dust. Can she turn back time on purpose?",
+      "image_prompt": "Young woman with messy bun, round glasses, oversized yellow sweater in Small cozy coffee shop with chalkboard menu and stuck wall clock reaching for clock hands",
+      "word_count": 73
+    },
+    {
+      "summary": "Maya perfectly times her latte pour, but Carl sneezes and destroys the perfect foam art.",
+      "text": "She counts down. Three. Two. One. Milk steams to a perfect hiss. The espresso blooms dark and rich. The pitcher glints silver. Steam curls hot around her wrist. Her hand is steady. She pours. A perfect rosetta unfolds in the foam. White petals on brown silk. It is flawless. It is finally right. Then Carl inhales sharply beside her. A huge wet sneeze erupts. Foam ripples. The rosetta explodes into speckles. Can she ever out-time fate itself?",
+      "image_prompt": "Young woman with messy bun, round glasses, oversized yellow sweater in Small cozy coffee shop with chalkboard menu and stuck wall clock, latte art splashed by barista sneeze",
+      "word_count": 77
+    },
+    {
+      "summary": "Maya collapses onto the sticky floor after the ruined latte, whispering she'll never escape cursed Monday.",
+      "text": "Foam explodes across the counter. Milk splatters her yellow sweater. The sneeze still echoes in the stale air. Maya sinks to the floor. Her knees hit cold tile. Her glasses fog with steam. The wall clock ticks without moving. The same Monday smell of burnt espresso hangs heavy. She stares at the ruined latte spreading at her feet. She will never escape this cursed Monday. But what if escape was never the point?",
+      "image_prompt": "Young woman with messy bun, round glasses, oversized yellow sweater in Small cozy coffee shop with chalkboard menu and stuck wall clock, collapsed on floor beside spilled latte",
+      "word_count": 73
+    },
+    {
+      "summary": "Maya rises and gracefully dances around Carl, pouring perfect latte art, ending with hope the loop breaks.",
+      "text": "Maya is on her feet again. The sticky floor no longer holds her. Steam hisses. Milk swirls. She slides across the counter like a dancer. She spins around Carl, his beard barely moving. She pours. The milk falls like silk. A perfect rosetta blooms in the foam. No spill. No slip. The stuck clock still reads nine. She holds the perfect cup up. But will the loop finally let her leave today?",
+      "image_prompt": "Young woman with messy bun, round glasses, oversized yellow sweater dancing around barista pouring latte art in Small cozy coffee shop with chalkboard menu and stuck wall clock",
+      "word_count": 72
+    },
+    {
+      "summary": "The stuck clock finally ticks, customers cheer, and Carl smiles at Maya's perfect latte art, ending hopeful.",
+      "text": "For the first time, the clock moves. One tick. Then another. The stuck hands shudder forward. Steam hisses from the espresso machine. The shop erupts. Mugs clink, chairs scrape, strangers cheer. Maya holds her breath. The latte sits perfect, foam heart unbroken. Carl stares down at it. His tired eyes soften. His beard twitches. He smiles. A real smile. But does a perfect pour mean the loop is finally over for good at last?",
+      "image_prompt": "Young woman with messy bun, round glasses, oversized yellow sweater, Small cozy coffee shop with chalkboard menu and stuck wall clock, Tired barista with bushy beard, bald head, floral apron holding latte",
+      "word_count": 74
+    },
+    {
+      "summary": "Maya serves a flawless latte as the clock chimes seven, Carl cheers, and the time loop finally breaks free.",
+      "text": "The bell jingles at seven sharp. Steam hisses. The clock chimes for real this time. One. Two. Three. Four. Five. Six. Seven. Maya lifts the pitcher. Her hand is steady. Milk swirls. Foam blooms into a perfect heart. Not a single drop spills. Carl raises his mug. The whole shop exhales. Light pours through the window. Warm on the counter. Monday finally moves forward. And for the first time in forever, seven AM tastes like coffee, not déjà vu.",
+      "image_prompt": "Young woman with messy bun, round glasses, oversized yellow sweater in Small cozy coffee shop with chalkboard menu and stuck wall clock pouring steamed milk into cup without spilling",
+      "word_count": 79
+    }
+  ],
+  "total_words": 751,
+  "created_at": "2026-09-06T10:28:16.566937+00:00",
+  "model": "muse-spark-1.2-contributor-free"
+}
